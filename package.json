@@ -1,0 +1,23 @@
+{
+  "name": "Backend",
+  "version": "1.0.0",
+  "description": "Project Tech 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkvHeusden/Matching-app.git"
+  },
+  "keywords": [],
+  "author": "Mark van Heusden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarkvHeusden/Matching-app/issues"
+  },
+  "homepage": "https://github.com/MarkvHeusden/Matching-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
