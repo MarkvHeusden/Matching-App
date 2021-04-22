@@ -2,7 +2,7 @@
   "name": "Matching-app",
   "version": "1.0.0",
   "description": "Project Tech 2021",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
