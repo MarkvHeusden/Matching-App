@@ -22,9 +22,9 @@ app.get('/matches', (req, res) => {
   res.send(`<h1>Matches</h1>`)
 })
 
-// Error handling
-app.use(function (req, res, next) {
-  res.status(404).send(`<iframe src="https://giphy.com/embed/5xaOcLyjXRo4hX5UhSU" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><style>body{background:black;height:100vh;display:grid;place-items:center;overflow:hidden;}</style>`)
+// 404 Page
+app.use((req, res) => {
+  res.status(404).sendFile('./views/404.html', { root: __dirname})
 })
 
 app.listen(port, () => {
