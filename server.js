@@ -1,17 +1,26 @@
+// Express
 const express = require('express')
 const app = express()
 const port = 3000
 
 app.use(express.static('./static/public'))
 
+// Template engine
+app.set('view engine', 'ejs')
+
 
 // Routes
 app.get('/', (req, res) => {
-  res.send(`<h1>Home</h1>`)
+  res.render('index', { title: 'Home'})
 })
 
 app.get('/explore', (req, res) => {
-  res.send(`<h1>Explore</h1>`)
+  const personen = [
+    {naam: 'Dave', bio: 'hoi ik ben dave'},
+    {naam: 'Jan', bio: 'hoi ik ben Jan'},
+    {naam: 'Henk', bio: 'hoi ik ben henk'}
+  ]
+  res.render('explore', { title: 'Ontdek', personen })
 })
 
 app.get('/explore/:personId/:slug', (req, res) => {
@@ -19,12 +28,12 @@ app.get('/explore/:personId/:slug', (req, res) => {
 })
 
 app.get('/matches', (req, res) => {
-  res.send(`<h1>Matches</h1>`)
+  res.render('matches')
 })
 
 // 404 Page
 app.use((req, res) => {
-  res.status(404).sendFile('./views/404.html', { root: __dirname})
+  res.status(404).render('404')
 })
 
 app.listen(port, () => {
