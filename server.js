@@ -20,15 +20,15 @@ app.get('/explore', (req, res) => {
     {naam: 'Jan', bio: 'hoi ik ben Jan'},
     {naam: 'Henk', bio: 'hoi ik ben henk'}
   ]
-  res.render('explore', { title: 'Ontdek', personen })
+  res.render('explore', { title: 'Ontdek personen', personen })
 })
 
 app.get('/explore/:personId/:slug', (req, res) => {
-  res.send(`<h1>Explore ${req.params.slug}</h1>`)
+  res.render('explore-details', { title: `${req.params.slug}`})
 })
 
 app.get('/matches', (req, res) => {
-  res.render('matches')
+  res.render('matches', { title: 'Mijn matches'})
 })
 
 // 404 Page
