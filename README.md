@@ -1,5 +1,5 @@
 # Pizza People
 
-<img src="https://forthebadge.com/images/badges/works-on-my-machine.svg" width="200"/>
-<img src="https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg" width="210"/>
-<img src="https://forthebadge.com/images/badges/not-a-bug-a-feature.svg" width="185"/>
+![](./static/public/images/readme/works-on-my-machine.svg)
+![](./static/public/images/readme/you-didnt-ask-for-this.svg)
+![](./static/public/images/readme/not-a-bug-a-feature.svg)
