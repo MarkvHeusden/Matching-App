@@ -32,7 +32,7 @@ npm start
 
 Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken van mensen en het matchen aan deze mensen als zij mij ook geliked hebben.
 
-<iframe src="https://giphy.com/embed/Q73Bb4tlFNtJlmagIk" width="480" height="224" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+![](https://media.giphy.com/media/Q73Bb4tlFNtJlmagIk/source.gif)
 
 ---
 # 🥱 Saaie documentatie
