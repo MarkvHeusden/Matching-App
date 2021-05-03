@@ -26,8 +26,15 @@ En start vervolgens de lokale server met het commando:
 npm start
 ````
 
-✅ Zo simpel is het! Je bent nu klaar om je liefdesleven te verbeteren.
+✅  Zo simpel is het! Je bent nu klaar om je liefdesleven te verbeteren.
 
+## 😎 Features van de applicatie
+
+Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken van mensen en het matchen aan deze mensen als zij mij ook geliked hebben.
+
+<iframe src="https://giphy.com/embed/Q73Bb4tlFNtJlmagIk" width="480" height="224" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+---
 # 🥱 Saaie documentatie
 
 ## 🤓 Wiki
@@ -37,3 +44,8 @@ Je kunt mijn uitgebreide Wiki met het hele proces vinden op [deze pagina](https:
 ## 🔏 License
 
 Als licentie maak ik gebruik van MIT. Voor alle info betreft MIT, bekijk [deze pagina van GitHub](https://github.com/MarkvHeusden/Matching-app/blob/main/LICENSE)
+
+## 📝 Bronnen
+* 
+* 
+* 
