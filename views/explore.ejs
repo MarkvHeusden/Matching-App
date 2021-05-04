@@ -8,8 +8,8 @@
     <h1>Ontdek mensen</h1>
     <% if (personen.length > 0) { %>
         <% personen.forEach(personen => { %>
-            <section class="persoon">
-                <img src="" alt="profiel afbeelding <%= personen.naam %>">
+            <section class="persoon-sectie">
+                <img src="./images/personen/<%= personen.img %>" alt="profiel afbeelding <%= personen.naam %>">
                 <article>
                     <h2 class='personen-naam'><%= personen.naam %></h2>
                     <p class='personen-bio'><%= personen.bio %></p>
@@ -17,7 +17,7 @@
             </section>
         <% }) %>
     <% } else { %>
-        <p>Er zijn geen personen gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later opnieuw.</p>
+        <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later opnieuw.</p>
     <% } %> 
     <form class="like-form" action="" method="POST">
         <button class="skip-btn" name="skip"><img src="./images/cross.svg" alt="skip"></button>

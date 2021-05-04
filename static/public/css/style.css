@@ -7,8 +7,15 @@
 
 h1 {
   font-size: 2em;
-  margin: 0.65rem 0;
+  margin: 1.75rem 0;
   letter-spacing: -0.035em; }
+
+a {
+  color: #ff8b00;
+  text-decoration: none; }
+
+li {
+  list-style-type: none; }
 
 html {
   min-height: 100vh;
@@ -32,14 +39,50 @@ header {
   header ul {
     display: flex;
     justify-content: space-between; }
-    header ul li {
-      list-style-type: none; }
-      header ul li a {
-        filter: grayscale(97.5%); }
-      header ul li .active {
-        filter: none; }
-      header ul li img {
-        width: 2rem; }
+    header ul a img {
+      filter: grayscale(97.5%);
+      width: 2rem;
+      transition: transform .3s; }
+    header ul a:hover img {
+      transform: scale(1.05); }
+    header ul a.active img {
+      filter: none; }
+
+.persoon-sectie {
+  height: 22rem;
+  width: calc(100% - 1.75rem* 2);
+  border-radius: 1.25rem;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform .3s, visibility .3s, opacity .3s;
+  position: absolute;
+  top: 10rem;
+  visibility: hidden;
+  pointer-events: none; }
+  .persoon-sectie img {
+    height: 17rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center; }
+  .persoon-sectie article {
+    padding: 0.65rem 1.25rem; }
+    .persoon-sectie article h2 {
+      padding-bottom: .25rem; }
+    .persoon-sectie article p {
+      opacity: 0.6; }
+  .persoon-sectie:first-of-type {
+    z-index: 2;
+    visibility: visible;
+    pointer-events: all; }
+  .persoon-sectie:first-of-type:hover {
+    transform: scale(1.02) rotateZ(5deg) translateY(-0.25rem) translateX(0.5rem); }
+  .persoon-sectie:nth-of-type(2) {
+    z-index: 1;
+    visibility: visible;
+    opacity: 0.6;
+    transform: scale(0.9) translateY(2rem); }
 
 .like-form {
   width: calc(100% - 1.75rem * 2);
@@ -47,7 +90,7 @@ header {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0; }
+  bottom: 1.75rem; }
   .like-form button {
     margin: 1.25rem;
     border-radius: 50%;
@@ -57,8 +100,12 @@ header {
     padding: 1.25rem;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    cursor: pointer; }
     .like-form button img {
-      width: 2rem; }
+      width: 2rem;
+      transition: transform .3s; }
+    .like-form button:hover img {
+      transform: scale(1.05); }
   .like-form .redo-btn img {
-    width: 1.5rem; }
+    width: 1.25rem; }

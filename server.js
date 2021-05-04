@@ -11,9 +11,9 @@ app.set('view engine', 'ejs')
 
 // Tijdelijke data
 const personen = [
-  // {naam: 'Dave', bio: 'hoi ik ben dave'},
-  // {naam: 'Jan', bio: 'hoi ik ben Jan'},
-  // {naam: 'Henk', bio: 'hoi ik ben henk'}
+  {naam: 'Jade', bio: 'Hoi ik ben Jade', img: '1.jpeg'},
+  {naam: 'Nina', bio: 'Hoi ik ben Nina', img: '2.jpeg'},
+  {naam: 'Lisa', bio: 'Hoi ik ben Lisa', img: '3.jpeg'}
 ]
 
 const matches = [
@@ -36,11 +36,16 @@ app.get('/matches', (req, res) => {
   res.render('matches', { title: 'Mijn matches', matches})
 })
 
+app.get('/account', (req, res) => {
+  res.render('account', { title: 'Mijn account'})
+})
+
 // 404 Page
 app.use((req, res) => {
   res.status(404).render('404')
 })
 
+// Run de server lokaal
 app.listen(port, () => {
   console.log(`Bekijk app op http://localhost:${port}`)
 })

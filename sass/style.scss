@@ -5,7 +5,9 @@ $sec-kleur: rgb(47, 45, 43);
 $small: 0.65rem;
 $medium: 1.25rem;
 $big: 1.75rem;
-$dark-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+$subtle-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+$scale-small: scale(1.02);
+$scale-big: scale(1.05);
 
 // Reset default styling
 *,
@@ -19,20 +21,23 @@ $dark-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
 // Generieke styling
 h1 {
     font-size: 2em;
-    margin: $small 0;
+    margin: $big 0;
     letter-spacing: -0.035em;
 }
 
-h2 {
+h2 {}
 
+h3 {}
+
+p {}
+
+a {
+    color: $prim-kleur;
+    text-decoration: none;
 }
 
-h3 {
-
-}
-
-p {
-
+li {
+    list-style-type: none;
 }
 
 // Mobiel venster voor op desktop
@@ -47,16 +52,27 @@ body {
     font-family: 'Karla', sans-serif;
     background-color: $backgr-kleur;
     color: $sec-kleur;
-    // min-width: 20rem;
-    // max-width: 26rem;
-    // min-height: 35.5rem;
-    // max-height: 50rem;
     width: 375px;
     height: 667px;
-    box-shadow: $dark-box-shadow;
+    box-shadow: $subtle-box-shadow;
     border-radius: $medium;
     padding: $big;
     position: relative;
+
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 100%;
+    //     width: 50%;
+    //     z-index: 10;
+    //     pointer-events: none;
+    // }
+
+    // &:hover::before .persoon-sectie {
+    //     display: none;
+    // }
 }
 
 // Header & navigatie
@@ -67,25 +83,75 @@ header {
         display: flex;
         justify-content: space-between;
 
-        li {
-            list-style-type: none;
-            a {
-                filter: grayscale(97.5%); 
+        a {
+            img {
+                filter: grayscale(97.5%);
+                width: 2rem;
+                transition: transform .3s;
             }
 
-            .active {
+            &:hover img {
+                transform: $scale-big;
+            }
+
+            &.active img {
                 filter: none;
             }
-
-            img {
-                width: 2rem;
-            }
-            
         }
     }
 }
 
+// Mensen ontdekken secties
+.persoon-sectie {
+    height: 22rem;
+    width: calc(100% - 1.75rem* 2);
+    border-radius: $medium;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: $subtle-box-shadow;
+    cursor: pointer;
+    transition: transform .3s, visibility .3s, opacity .3s;
+    position: absolute;
+    top: 10rem;
+    visibility: hidden;
+    pointer-events: none;
 
+    img {
+        height: 17rem;
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    article {
+        padding: $small $medium;
+
+        h2 {
+            padding-bottom: .25rem;
+        }
+
+        p {
+            opacity: 0.6;
+        }
+    }
+
+    &:first-of-type {
+        z-index: 2;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    &:first-of-type:hover {
+        transform: $scale-small rotateZ(5deg) translateY(-.25rem) translateX(.5rem);
+    }
+
+    &:nth-of-type(2) {
+        z-index: 1;
+        visibility: visible;
+        opacity: 0.6;
+        transform: scale(0.9) translateY(2rem);
+    }
+}
 
 
 // Like & skip formulier
@@ -95,38 +161,39 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 0;
+    bottom: $big;
 
     button {
         margin: $medium;
         border-radius: 50%;
         border: none;
         background-color: transparent;
-        box-shadow: $dark-box-shadow;
+        box-shadow: $subtle-box-shadow;
         padding: $medium;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
 
         img {
             width: 2rem;
+            transition: transform .3s;
+        }
+
+        &:hover img {
+            transform: $scale-big;
         }
     }
 
     .skip-btn {
-        img {
-            
-        }
+        img {}
     }
 
     .redo-btn {
         img {
-            width: 1.5rem;
+            width: 1.25rem;
         }
     }
 
-    .like-btn {
-        // background-color: rgba(71,214,71,0.25);
-        // box-shadow: 0px 2px 15px 3px rgba(71,214,71,0.3);
-    }
+    .like-btn {}
 }
