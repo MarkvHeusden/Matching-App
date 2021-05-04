@@ -1,9 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <%- include('./includes/head.ejs') %>
 
 <body>
     <%- include('./includes/header.ejs') %>
+<main>
+    <h1>Matches</h1>
+    <% if (matches.length > 0) { %>
+        <% matches.forEach(matches => { %>
+            <section class="match">
+                <img src="" alt="profiel afbeelding <%= matches.naam %>">
+                <article>
+                    <h2 class='match-naam'><%= matches.naam %></h2>
+                    <p class='match-bericht'><%= matches.bericht %></p>
+                </article>
+            </section>
+       <% }) %>
+    <% } else { %>
+        <p>Je hebt nog geen matches! Bekijk de <a href="./explore">ontdek pagina</a> om nieuwe matches te krijgen.</p>
+    <% } %> 
+</main>
 </body>
 
 </html>

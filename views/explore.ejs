@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="nl">
 <%- include('./includes/head.ejs') %>
+
 <body>
     <%- include('./includes/header.ejs') %>
-    <main>
-        <% if (personen.length > 0) { %>
-            <% personen.forEach(personen => { %>
-                <section>
-                    <img src="" alt="profiel afbeelding <%= personen.naam %>">
-                    <article>
-                        <h2 class='personen-naam'><%= personen.naam %></h2>
-                        <p class='personen-bio'><%= personen.bio %></p>
-                    </article>
-                </section>
-           <% }) %>
-        <% } %>
-        <form action="" method="POST">
-            <button name="skip"><img src="./images/dislike.svg" alt="skip"></button>
-            <button name="redo"><img src="./images/redo.svg" alt="redo"></button>
-            <button name="like"><img src="./images/like.svg" alt="like"></button>
-        </form>
-    </main>
+<main>
+    <h1>Ontdek mensen</h1>
+    <% if (personen.length > 0) { %>
+        <% personen.forEach(personen => { %>
+            <section class="persoon">
+                <img src="" alt="profiel afbeelding <%= personen.naam %>">
+                <article>
+                    <h2 class='personen-naam'><%= personen.naam %></h2>
+                    <p class='personen-bio'><%= personen.bio %></p>
+                </article>
+            </section>
+        <% }) %>
+    <% } else { %>
+        <p>Er zijn geen personen gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later opnieuw.</p>
+    <% } %> 
+    <form action="" method="POST">
+        <button name="skip"><img src="./images/dislike.svg" alt="skip"></button>
+        <button name="redo"><img src="./images/redo.svg" alt="redo"></button>
+        <button name="like"><img src="./images/like.svg" alt="like"></button>
+    </form>
+</main>
 </body>
 </html>

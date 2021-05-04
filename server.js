@@ -9,26 +9,31 @@ app.use(express.static('./static/public'))
 app.set('view engine', 'ejs')
 
 
+// Tijdelijke data
+const personen = [
+  {naam: 'Dave', bio: 'hoi ik ben dave'},
+  {naam: 'Jan', bio: 'hoi ik ben Jan'},
+  {naam: 'Henk', bio: 'hoi ik ben henk'}
+]
+
+const matches = [
+]
+
 // Routes
 app.get('/', (req, res) => {
   res.redirect('/explore')
 })
 
 app.get('/explore', (req, res) => {
-  const personen = [
-    {naam: 'Dave', bio: 'hoi ik ben dave'},
-    {naam: 'Jan', bio: 'hoi ik ben Jan'},
-    {naam: 'Henk', bio: 'hoi ik ben henk'}
-  ]
   res.render('explore', { title: 'Ontdek personen', personen })
 })
 
 app.get('/explore/:personId/:slug', (req, res) => {
-  res.render('explore-details', { title: `${req.params.slug}`})
+  res.render('details', { title: `${req.params.slug}`})
 })
 
 app.get('/matches', (req, res) => {
-  res.render('matches', { title: 'Mijn matches'})
+  res.render('matches', { title: 'Mijn matches', matches})
 })
 
 // 404 Page
