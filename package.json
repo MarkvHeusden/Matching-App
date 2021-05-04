@@ -4,7 +4,10 @@
   "description": "Project Tech 2021",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "live": "npm run live-code & npm run live-css",
+    "live-code": "nodemon server.js",
+    "live-css": "node-sass -w ./sass -o ./static/public/css"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "node-sass": "^5.0.0",
     "nodemon": "^2.0.7"
   }
 }
