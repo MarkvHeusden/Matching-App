@@ -5,6 +5,60 @@
   margin: 0;
   padding: 0; }
 
+h1 {
+  font-size: 2em;
+  margin: 0.65rem 0;
+  letter-spacing: -0.035em; }
+
+html {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden; }
+
 body {
-  font-family: sans-serif;
-  color: orange; }
+  font-family: 'Karla', sans-serif;
+  background-color: #fbfbfb;
+  color: #2f2d2b;
+  width: 375px;
+  height: 667px;
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  position: relative; }
+
+header {
+  margin-bottom: 1.25rem; }
+  header ul {
+    display: flex;
+    justify-content: space-between; }
+    header ul li {
+      list-style-type: none; }
+      header ul li a {
+        filter: grayscale(97.5%); }
+      header ul li .active {
+        filter: none; }
+      header ul li img {
+        width: 2rem; }
+
+.like-form {
+  width: calc(100% - 1.75rem * 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0; }
+  .like-form button {
+    margin: 1.25rem;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .like-form button img {
+      width: 2rem; }
+  .like-form .redo-btn img {
+    width: 1.5rem; }

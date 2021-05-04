@@ -1,5 +1,13 @@
-$prim-color: orange;
+// Variabelen
+$backgr-kleur: rgb(251, 251, 251);
+$prim-kleur: rgb(255, 139, 0);
+$sec-kleur: rgb(47, 45, 43);
+$small: 0.65rem;
+$medium: 1.25rem;
+$big: 1.75rem;
+$dark-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
 
+// Reset default styling
 *,
 *::before,
 *::after {
@@ -8,7 +16,117 @@ $prim-color: orange;
     padding: 0;
 }
 
+// Generieke styling
+h1 {
+    font-size: 2em;
+    margin: $small 0;
+    letter-spacing: -0.035em;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+
+}
+
+// Mobiel venster voor op desktop
+html {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
 body {
-    font-family: sans-serif;
-    color: $prim-color;
+    font-family: 'Karla', sans-serif;
+    background-color: $backgr-kleur;
+    color: $sec-kleur;
+    // min-width: 20rem;
+    // max-width: 26rem;
+    // min-height: 35.5rem;
+    // max-height: 50rem;
+    width: 375px;
+    height: 667px;
+    box-shadow: $dark-box-shadow;
+    border-radius: $medium;
+    padding: $big;
+    position: relative;
+}
+
+// Header & navigatie
+header {
+    margin-bottom: $medium;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            list-style-type: none;
+            a {
+                filter: grayscale(97.5%); 
+            }
+
+            .active {
+                filter: none;
+            }
+
+            img {
+                width: 2rem;
+            }
+            
+        }
+    }
+}
+
+
+
+
+// Like & skip formulier
+.like-form {
+    width: calc(100% - 1.75rem * 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    button {
+        margin: $medium;
+        border-radius: 50%;
+        border: none;
+        background-color: transparent;
+        box-shadow: $dark-box-shadow;
+        padding: $medium;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 2rem;
+        }
+    }
+
+    .skip-btn {
+        img {
+            
+        }
+    }
+
+    .redo-btn {
+        img {
+            width: 1.5rem;
+        }
+    }
+
+    .like-btn {
+        // background-color: rgba(71,214,71,0.25);
+        // box-shadow: 0px 2px 15px 3px rgba(71,214,71,0.3);
+    }
 }

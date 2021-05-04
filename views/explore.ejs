@@ -19,11 +19,13 @@
     <% } else { %>
         <p>Er zijn geen personen gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later opnieuw.</p>
     <% } %> 
-    <form action="" method="POST">
-        <button name="skip"><img src="./images/dislike.svg" alt="skip"></button>
-        <button name="redo"><img src="./images/redo.svg" alt="redo"></button>
-        <button name="like"><img src="./images/like.svg" alt="like"></button>
+    <form class="like-form" action="" method="POST">
+        <button class="skip-btn" name="skip"><img src="./images/cross.svg" alt="skip"></button>
+        <button class="redo-btn" name="redo"><img src="./images/redo.svg" alt="redo"></button>
+        <button class="like-btn" name="like"><img src="./images/heart.svg" alt="like"></button>
     </form>
 </main>
+<script src="./js/script.js"></script>
 </body>
+
 </html>

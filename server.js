@@ -11,9 +11,9 @@ app.set('view engine', 'ejs')
 
 // Tijdelijke data
 const personen = [
-  {naam: 'Dave', bio: 'hoi ik ben dave'},
-  {naam: 'Jan', bio: 'hoi ik ben Jan'},
-  {naam: 'Henk', bio: 'hoi ik ben henk'}
+  // {naam: 'Dave', bio: 'hoi ik ben dave'},
+  // {naam: 'Jan', bio: 'hoi ik ben Jan'},
+  // {naam: 'Henk', bio: 'hoi ik ben henk'}
 ]
 
 const matches = [
