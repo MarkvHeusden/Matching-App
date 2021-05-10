@@ -40,7 +40,7 @@ header {
     display: flex;
     justify-content: space-between; }
     header ul a img {
-      filter: grayscale(97.5%);
+      filter: grayscale(99%);
       width: 2rem;
       transition: transform .3s; }
     header ul a:hover img {
@@ -83,6 +83,30 @@ header {
     visibility: visible;
     opacity: 0.6;
     transform: scale(0.9) translateY(2rem); }
+
+.match-sectie {
+  display: flex;
+  border-radius: 0.65rem;
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  margin-bottom: 0.65rem;
+  cursor: pointer;
+  transition: transform .3s; }
+  .match-sectie .profiel-afbeelding-cirkel {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden; }
+    .match-sectie .profiel-afbeelding-cirkel img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center center; }
+  .match-sectie article {
+    padding-left: 0.65rem; }
+    .match-sectie article .match-bericht {
+      opacity: 0.6; }
+  .match-sectie:hover {
+    transform: scale(1.02); }
 
 .like-form {
   width: calc(100% - 1.75rem * 2);

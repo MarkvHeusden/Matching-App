@@ -25,12 +25,6 @@ h1 {
     letter-spacing: -0.035em;
 }
 
-h2 {}
-
-h3 {}
-
-p {}
-
 a {
     color: $prim-kleur;
     text-decoration: none;
@@ -58,21 +52,6 @@ body {
     border-radius: $medium;
     padding: $big;
     position: relative;
-
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     height: 100%;
-    //     width: 50%;
-    //     z-index: 10;
-    //     pointer-events: none;
-    // }
-
-    // &:hover::before .persoon-sectie {
-    //     display: none;
-    // }
 }
 
 // Header & navigatie
@@ -85,7 +64,7 @@ header {
 
         a {
             img {
-                filter: grayscale(97.5%);
+                filter: grayscale(99%);
                 width: 2rem;
                 transition: transform .3s;
             }
@@ -150,6 +129,43 @@ header {
         visibility: visible;
         opacity: 0.6;
         transform: scale(0.9) translateY(2rem);
+    }
+}
+
+// Matches pagina
+.match-sectie {
+    display: flex;
+    border-radius: $small;
+    box-shadow: $subtle-box-shadow;
+    padding: $medium;
+    margin-bottom: $small;
+    cursor: pointer;
+    transition: transform .3s;
+
+    .profiel-afbeelding-cirkel {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        overflow: hidden;
+        
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+
+    article {
+        padding-left: $small;
+
+        .match-bericht {
+            opacity: 0.6;
+        }
+    }
+
+    &:hover {
+        transform: $scale-small;
     }
 }
 

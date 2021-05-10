@@ -8,8 +8,10 @@
     <h1>Matches</h1>
     <% if (matches.length > 0) { %>
         <% matches.forEach(matches => { %>
-            <section class="match">
-                <img src="" alt="profiel afbeelding <%= matches.naam %>">
+            <section class="match-sectie">
+                <div class="profiel-afbeelding-cirkel">
+                    <img src="./images/personen/<%= matches.img %>" alt="profiel afbeelding <%= matches.naam %>">
+                </div>
                 <article>
                     <h2 class='match-naam'><%= matches.naam %></h2>
                     <p class='match-bericht'><%= matches.bericht %></p>

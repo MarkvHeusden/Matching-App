@@ -17,6 +17,9 @@ const personen = [
 ]
 
 const matches = [
+  {naam: 'Jade', bericht: 'Hoi ik ben Jade', img: '1.jpeg'},
+  {naam: 'Nina', bericht: 'Hoi ik ben Nina', img: '2.jpeg'},
+  {naam: 'Lisa', bericht: 'Hoi ik ben Lisa', img: '3.jpeg'}
 ]
 
 // Routes
