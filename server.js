@@ -15,19 +15,25 @@ const personen = [{
     id: 52934,
     naam: 'Jade',
     bio: 'Hoi ik ben Jade',
-    img: '1.png' // Cropped afbeelding maken & checken
+    imgFull: '1.jpeg',
+    img: '1.png', // Cropped afbeelding maken & checken
+    bioLang: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
   },
   {
     id: 52935,
     naam: 'Nina',
     bio: 'Hoi ik ben Nina',
-    img: '2.jpeg'
+    imgFull: '2.jpeg',
+    img: '2.jpeg',
+    bioLang: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
   },
   {
     id: 52936,
     naam: 'Lisa',
     bio: 'Hoi ik ben Lisa',
-    img: '3.jpeg'
+    imgFull: '3.jpeg',
+    img: '3.jpeg',
+    bioLang: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.'
   }
 ]
 
@@ -49,8 +55,8 @@ app.get('/explore', (req, res) => {
   })
 })
 
-app.get('/explore/:personId', (req, res) => {
-  const persoon = personen.find(persoon => persoon.id == req.params.personId)
+app.get('/explore/:persoonId', (req, res) => {
+  const persoon = personen.find(persoon => persoon.id == req.params.persoonId)
   res.render('details', {
     title: persoon.naam,
     persoon

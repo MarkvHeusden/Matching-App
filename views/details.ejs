@@ -3,18 +3,26 @@
 <%- include('./includes/head.ejs') %>
 
 <body>
-    <%- include('./includes/header.ejs') %>
+    <header>
+        <nav class="nav-back">
+            <a href="/explore"><img src="/images/pijl.svg" alt="terug pijl"></a>
+        </nav>
+    </header>
     <main>
-        <img src="./images/personen/<%= persoon.img %>" alt="profiel afbeelding <%= persoon.naam %>">
-        <h1><%= persoon.naam %></h1>
-        <p class='persoon-bio'><%= persoon.bio %></p>
-        <form class="like-form" action="" method="POST">
-            <button class="skip-btn" name="skip">Skip<img src="./images/cross.svg" alt="skip"></button>
-            <button class="redo-btn" name="redo">Redo<img src="./images/redo.svg" alt="redo"></button>
-            <button class="like-btn" name="like">Like<img src="./images/heart.svg" alt="like"></button>
+        <section class="persoon-details">
+            <img src="/images/personen/<%= persoon.imgFull %>" alt="profiel afbeelding <%= persoon.naam %>">
+            <article>
+                <h1><%= persoon.naam %></h1>
+                <p><%= persoon.bioLang %></p>
+        </article>
+        </section>
+        <form class="like-form detail-form" action="" method="POST">
+            <button class="skip-btn" name="skip">Skip<img src="/images/cross.svg" alt="skip"></button>
+            <button class="redo-btn" name="redo">Redo<img src="/images/redo.svg" alt="redo"></button>
+            <button class="like-btn" name="like">Like<img src="/images/heart.svg" alt="like"></button>
         </form>
     </main>
-    <script src="./js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

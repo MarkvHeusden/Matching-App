@@ -10,6 +10,9 @@ h1 {
   margin: 1.75rem 0;
   letter-spacing: -0.035em; }
 
+p {
+  line-height: 1.4em; }
+
 a {
   color: #ff8b00;
   text-decoration: none; }
@@ -32,7 +35,9 @@ body {
   box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
   border-radius: 1.25rem;
   padding: 1.75rem;
-  position: relative; }
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll; }
 
 header {
   margin-bottom: 1.25rem; }
@@ -47,6 +52,18 @@ header {
       transform: scale(1.05); }
     header ul a.active img {
       filter: none; }
+  header .nav-back {
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+    z-index: 1; }
+    header .nav-back img {
+      width: 2.5rem;
+      filter: grayscale(99%);
+      background-color: #fbfbfb;
+      box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      padding: 0.65rem; }
 
 .persoon-sectie {
   height: 22rem;
@@ -73,6 +90,17 @@ header {
       opacity: 0.6; }
   .persoon-sectie:hover {
     transform: scale(1.02) rotateZ(5deg) translateY(-0.25rem) translateX(0.5rem); }
+
+.persoon-details img {
+  min-width: calc(100% + 1.75rem * 2);
+  transform: translate(-1.75rem, -3rem);
+  height: 35.25rem; }
+
+.persoon-details article {
+  transform: translateY(-3rem);
+  padding-top: 1.25rem; }
+  .persoon-details article h1 {
+    margin-bottom: 0.65rem; }
 
 .match-sectie {
   display: flex;
@@ -109,7 +137,7 @@ header {
     margin: 1.25rem;
     border-radius: 50%;
     border: none;
-    background-color: transparent;
+    background-color: #fbfbfb;
     box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
     padding: 1.25rem;
     display: flex;
@@ -125,21 +153,27 @@ header {
       transform: scale(1.05); }
   .like-form .redo-btn img {
     width: 1.25rem; }
-  .like-form::before, .like-form::after {
-    content: '';
-    height: 10rem;
-    border-radius: 1.25rem;
-    box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    pointer-events: none;
-    background-color: white; }
-  .like-form::before {
-    width: calc(100% - 1.9rem);
-    bottom: 7.3rem;
-    z-index: -1;
-    opacity: 0.7; }
-  .like-form::after {
-    width: calc(100% - 3.6rem);
-    bottom: 6.6rem;
-    z-index: -2;
-    opacity: 0.4; }
+
+.explore-form::before, .explore-form::after {
+  content: '';
+  height: 10rem;
+  border-radius: 1.25rem;
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  pointer-events: none;
+  background-color: white; }
+
+.explore-form::before {
+  width: calc(100% - 1.9rem);
+  bottom: 7.3rem;
+  z-index: -1;
+  opacity: 0.7; }
+
+.explore-form::after {
+  width: calc(100% - 3.6rem);
+  bottom: 6.6rem;
+  z-index: -2;
+  opacity: 0.4; }
+
+.detail-form {
+  bottom: 3rem; }
