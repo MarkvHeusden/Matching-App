@@ -83,17 +83,16 @@ header {
 // Mensen ontdekken secties
 .persoon-sectie {
     height: 22rem;
-    width: calc(100% - 1.75rem* 2);
+    width: calc(100% - 1.75rem * 2);
     border-radius: $medium;
     background-color: white;
-    overflow: hidden;
     box-shadow: $subtle-box-shadow;
     cursor: pointer;
-    transition: transform .3s, visibility .3s, opacity .3s;
+    transition: transform .3s;
     position: absolute;
     top: 10rem;
-    visibility: hidden;
-    pointer-events: none;
+    color: $sec-kleur;
+    overflow: hidden;
 
     img {
         height: 17rem;
@@ -114,21 +113,8 @@ header {
         }
     }
 
-    &:first-of-type {
-        z-index: 2;
-        visibility: visible;
-        pointer-events: all;
-    }
-
-    &:first-of-type:hover {
+    &:hover {
         transform: $scale-small rotateZ(5deg) translateY(-.25rem) translateX(.5rem);
-    }
-
-    &:nth-of-type(2) {
-        z-index: 1;
-        visibility: visible;
-        opacity: 0.6;
-        transform: scale(0.9) translateY(2rem);
     }
 }
 
@@ -190,6 +176,8 @@ header {
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        text-indent: -10rem;
+        overflow: hidden;
 
         img {
             width: 2rem;
@@ -200,16 +188,34 @@ header {
             transform: $scale-big;
         }
     }
-
-    .skip-btn {
-        img {}
-    }
-
+    
     .redo-btn {
         img {
             width: 1.25rem;
         }
     }
 
-    .like-btn {}
+    &::before, &::after {
+        content: '';
+        height: 10rem;
+        border-radius: $medium;
+        box-shadow: $subtle-box-shadow;
+        position: absolute;
+        pointer-events: none;
+        background-color: white;
+    }
+
+    &::before {
+        width: calc(100% - 1.9rem);
+        bottom: 7.3rem;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    &::after {
+        width: calc(100% - 3.6rem);
+        bottom: 6.6rem;
+        z-index: -2;
+        opacity: 0.4;
+    }
 }

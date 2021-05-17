@@ -44,8 +44,3 @@ Je kunt mijn uitgebreide Wiki met het hele proces vinden op [deze pagina](https:
 ## 🔏 License
 
 Als licentie maak ik gebruik van MIT. Voor alle info betreft MIT, bekijk [deze pagina van GitHub](https://github.com/MarkvHeusden/Matching-app/blob/main/LICENSE)
-
-## 📝 Bronnen
-* 
-* 
-* 

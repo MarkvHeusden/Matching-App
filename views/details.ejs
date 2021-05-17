@@ -3,7 +3,17 @@
 <%- include('./includes/head.ejs') %>
 
 <body>
-
+    <%- include('./includes/header.ejs') %>
+    <main>
+        <img src="./images/personen/<%= persoon.img %>" alt="profiel afbeelding <%= persoon.naam %>">
+        <h1><%= persoon.naam %></h1>
+        <p class='persoon-bio'><%= persoon.bio %></p>
+        <form class="like-form" action="" method="POST">
+            <button class="skip-btn" name="skip">Skip<img src="./images/cross.svg" alt="skip"></button>
+            <button class="redo-btn" name="redo">Redo<img src="./images/redo.svg" alt="redo"></button>
+            <button class="like-btn" name="like">Like<img src="./images/heart.svg" alt="like"></button>
+        </form>
+    </main>
     <script src="./js/script.js"></script>
 </body>
 

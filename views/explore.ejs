@@ -4,28 +4,32 @@
 
 <body>
     <%- include('./includes/header.ejs') %>
-<main>
-    <h1>Ontdek mensen</h1>
-    <% if (personen.length > 0) { %>
-        <% personen.forEach(personen => { %>
-            <section class="persoon-sectie">
-                <img src="./images/personen/<%= personen.img %>" alt="profiel afbeelding <%= personen.naam %>">
+    <main>
+        <h1>Ontdek mensen</h1>
+        <% if (huidigePersoon) { %>
+        <a href="./explore/<%= huidigePersoon.id %>" class="persoon-sectie">
+            <section>
+                <img src="./images/personen/<%= huidigePersoon.img %>"
+                    alt="profiel afbeelding <%= huidigePersoon.naam %>">
                 <article>
-                    <h2 class='personen-naam'><%= personen.naam %></h2>
-                    <p class='personen-bio'><%= personen.bio %></p>
+                    <h2 class='personen-naam'><%= huidigePersoon.naam %></h2>
+                    <p class='personen-bio'><%= huidigePersoon.bio %></p>
                 </article>
             </section>
-        <% }) %>
-    <% } else { %>
-        <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later opnieuw.</p>
-    <% } %> 
-    <form class="like-form" action="" method="POST">
-        <button class="skip-btn" name="skip"><img src="./images/cross.svg" alt="skip"></button>
-        <button class="redo-btn" name="redo"><img src="./images/redo.svg" alt="redo"></button>
-        <button class="like-btn" name="like"><img src="./images/heart.svg" alt="like"></button>
-    </form>
-</main>
-<script src="./js/script.js"></script>
+        </a>
+        <% } else { %>
+        <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later
+            opnieuw.</p>
+        <% } %>
+
+
+        <form class="like-form" action="" method="POST">
+            <button class="skip-btn" name="skip">Skip<img src="./images/cross.svg" alt="skip"></button>
+            <button class="redo-btn" name="redo">Redo<img src="./images/redo.svg" alt="redo"></button>
+            <button class="like-btn" name="like">Like<img src="./images/heart.svg" alt="like"></button>
+        </form>
+    </main>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
