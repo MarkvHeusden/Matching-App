@@ -85,7 +85,7 @@ header {
   .persoon-sectie article {
     padding: 0.65rem 1.25rem; }
     .persoon-sectie article h2 {
-      padding-bottom: .25rem; }
+      padding-bottom: .1rem; }
     .persoon-sectie article p {
       opacity: 0.6; }
   .persoon-sectie:hover {
@@ -122,7 +122,9 @@ header {
   .match-sectie article {
     padding-left: 0.65rem; }
     .match-sectie article .match-bericht {
-      opacity: 0.6; }
+      opacity: 0.6;
+      font-style: italic;
+      font-size: 0.9rem; }
   .match-sectie:hover {
     transform: scale(1.02); }
 
@@ -151,8 +153,10 @@ header {
       transition: transform .3s; }
     .like-form button:hover img {
       transform: scale(1.05); }
-  .like-form .redo-btn img {
-    width: 1.25rem; }
+  .like-form .redo-btn {
+    pointer-events: none; }
+    .like-form .redo-btn img {
+      width: 1.25rem; }
 
 .explore-form::before, .explore-form::after {
   content: '';

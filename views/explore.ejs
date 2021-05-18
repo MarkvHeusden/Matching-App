@@ -22,12 +22,13 @@
             opnieuw.</p>
         <% } %>
 
-
+        <% if (huidigePersoon) { %>
         <form class="like-form explore-form" action="" method="POST">
-            <button class="skip-btn" name="skip">Skip<img src="/images/cross.svg" alt="skip"></button>
-            <button class="redo-btn" name="redo">Redo<img src="/images/redo.svg" alt="redo"></button>
-            <button class="like-btn" name="like">Like<img src="/images/heart.svg" alt="like"></button>
+            <button class="skip-btn" name="rate" value="skip">Skip<img src="/images/cross.svg" alt="skip"></button>
+            <button class="redo-btn" name="rate" value="redo">Redo<img src="/images/redo.svg" alt="redo"></button>
+            <button class="like-btn" name="rate" value="like">Like<img src="/images/heart.svg" alt="like"></button>
         </form>
+        <% } %>
     </main>
     <script src="/js/script.js"></script>
 </body>

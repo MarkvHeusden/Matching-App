@@ -127,7 +127,7 @@ header {
         padding: $small $medium;
 
         h2 {
-            padding-bottom: .25rem;
+            padding-bottom: .1rem;
         }
 
         p {
@@ -188,6 +188,8 @@ header {
 
         .match-bericht {
             opacity: 0.6;
+            font-style: italic;
+            font-size: 0.9rem;
         }
     }
 
@@ -231,6 +233,8 @@ header {
     }
     
     .redo-btn {
+        pointer-events: none;
+
         img {
             width: 1.25rem;
         }
