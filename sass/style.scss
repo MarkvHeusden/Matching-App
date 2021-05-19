@@ -174,7 +174,7 @@ header {
         height: 3rem;
         border-radius: 50%;
         overflow: hidden;
-        
+
 
         img {
             width: 100%;
@@ -231,7 +231,7 @@ header {
             transform: $scale-big;
         }
     }
-    
+
     .redo-btn {
         pointer-events: none;
 
@@ -242,7 +242,9 @@ header {
 }
 
 .explore-form {
-    &::before, &::after {
+
+    &::before,
+    &::after {
         content: '';
         height: 10rem;
         border-radius: $medium;

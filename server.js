@@ -3,9 +3,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Middleware & static bestanden
 app.use(express.static('./static/public'))
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 // Template engine
 app.set('view engine', 'ejs')
