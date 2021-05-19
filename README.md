@@ -30,7 +30,7 @@ npm start
 
 ## 😎 Features van de applicatie
 
-Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken van mensen en het matchen aan deze mensen als zij mij ook geliked hebben.
+Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken/skippen van mensen en het matchen aan deze mensen als zij mij ook geliked hebben. In mijn feature heb ik aangegeven dat de eerste 2 personen mij hebben geliket door middel van de propperty ````likedMe: true````. Als ik 1 van hen ook like krijg ik dus een match.
 
 ![](https://media.giphy.com/media/Q73Bb4tlFNtJlmagIk/source.gif)
 
