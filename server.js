@@ -1,7 +1,7 @@
 // Express
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000 // Gebruik Heroku port of localhost port
 
 // Middleware & static bestanden
 app.use(express.static('./static/public'))
