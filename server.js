@@ -13,13 +13,13 @@ let db
 
 // Verbind met MongoDB
 const connectDB = async () => {
-    // Pak URI uit .env bestand
-    const dbURI = process.env.DB_URI
-    // Opties object toegevoegd om waarschuwingen in console te voorkomen
+    const dbURI = process.env.DB_URI // Pak URI uit .env bestand
     const options = {
+        // Opties object toegevoegd om waarschuwingen in console te voorkomen
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
+    // Maak connectie met opgegeven URI
     const client = new MongoClient(dbURI, options)
     await client.connect()
     db = await client.db(process.env.DB_NAME)
@@ -51,74 +51,68 @@ app.get('/', (req, res) => {
 
 app.get('/explore', async (req, res) => {
     const collection = db.collection('personen')
-    const query = { rated: false }
-    const huidigePersoon = await collection.findOne(query)
-    res.render('explore', {
-        title: 'Ontdek personen',
-        huidigePersoon
-    })
+    const query = { rated: false } // Toon alleen personen die je nog niet beoordeelt hebt
+    const huidigePersoon = await collection.findOne(query) // Selecteer 1 persoon bovenaan alle personen om te beoordelen
+    res.render('explore', { title: 'Ontdek personen', huidigePersoon })
 })
 
 app.get('/explore/:persoonId', async (req, res, next) => {
     const collection = db.collection('personen')
-    const query = { _id: ObjectId(req.params.persoonId) }
-    const persoon = await collection.findOne(query)
+    const query = { _id: ObjectId(req.params.persoonId) } // Pak het ID dat in de URL staat
+    const persoon = await collection.findOne(query) // Vind een persoon met dit ID
     if (persoon) {
         res.render('details', { title: persoon.naam, persoon })
     } else {
-        return next()
+        return next() // Ga door naar volgende route(s) (404 pagina) als er geen persoon is gevonden
     }
 })
 
 app.get('/matches', async (req, res) => {
     const collection = db.collection('personen')
-    const query = { matched: true }
+    const query = { matched: true } // Toon alleen personen waarmee ik een match heb
     const matches = await collection.find(query).toArray()
-    res.render('matches', {
-        title: 'Mijn matches',
-        matches
-    })
+    res.render('matches', { title: 'Mijn matches', matches })
 })
 
 app.get('/account', (req, res) => {
-    res.render('account', {
-        title: 'Mijn account'
-    })
+    res.render('account', { title: 'Mijn account' })
 })
 
-// Like / skip
+// Like / skip formulier + reset optie
 app.post(['/explore', '/explore/:persoonId'], async (req, res) => {
     const collection = db.collection('personen')
-    const query = { rated: false }
-    const huidigePersoon = await collection.findOne(query)
+    const query = { rated: false } // Toon alleen personen die je nog niet beoordeelt hebt
+    const huidigePersoon = await collection.findOne(query) // Selecteer 1 persoon bovenaan alle personen om te beoordelen
 
-    // Formulier op zowel de ontdek als detailpagina
+    // Als de like knop is gedrukt
     if (req.body.rate === 'like') {
-        // Als like knop is gedrukt
+        // En als deze persoon mij heeft geliked
         if (huidigePersoon.likedMe) {
-            // Als deze persoon mij ook heeft geliked
             await collection.updateOne(query, {
-                $set: { rated: true, liked: true, matched: true } // Geef dan aan dat we een match zijn
+                $set: { rated: true, liked: true, matched: true } // Geef dan aan dat de persoon beoordeelt & geliket is & dat we een match zijn
             })
+            // En als deze persoon mij (nog) niet heeft geliked
         } else {
             await collection.updateOne(query, {
-                $set: { rated: true, liked: true } // Geef dan aan dat deze persoon geliked is en beoordeelt is
+                $set: { rated: true, liked: true } // Geef dan aan dat de persoon beoordeelt & geliket is
             })
         }
+        // Als de skip knop is gedrukt
     } else if (req.body.rate === 'skip') {
-        // Als skip knop is gedrukt
         await collection.updateOne(query, {
-            $set: { rated: true } // Geef dan aan dat deze persoon beoordeelt is
+            $set: { rated: true } // Geef dan aan dat de persoon beoordeelt is
         })
+        // Als de reset knop is gedrukt
     } else if (req.body.reset === 'reset') {
         await collection.updateMany(
+            // Zet dan voor elke persoon de waardes terug naar false
             {},
             {
                 $set: { liked: false, rated: false, matched: false }
             }
         )
     }
-    res.redirect('/explore') // Stuur mensen door naar de explore pagina. Geen render hier omdat mensen van de detail pagina dan deze URL met id behouden waardoor de nav bar niet meer ziet dat ze op de explore pagina zijn.
+    res.redirect('/explore') // Stuur mensen door naar de explore pagina. Geen render hier omdat mensen van de detail pagina dan deze URL met id behouden waardoor de front-end JS van de nav bar niet meer ziet dat ze op de explore pagina zijn.
 })
 
 // 404 Page
