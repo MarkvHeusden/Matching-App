@@ -181,3 +181,26 @@ header {
 
 .detail-form {
   bottom: 3rem; }
+
+.reset-form {
+  display: grid;
+  place-items: center;
+  height: 10rem; }
+  .reset-form .reset-btn {
+    margin: 1.25rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #fbfbfb;
+    box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-indent: -10rem;
+    overflow: hidden; }
+    .reset-form .reset-btn img {
+      width: 1.25rem;
+      transition: transform .3s; }
+    .reset-form .reset-btn:hover img {
+      transform: scale(1.05); }

@@ -18,8 +18,11 @@
             </section>
         </a>
         <% } else { %>
-        <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later
-            opnieuw.</p>
+            <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later
+                opnieuw.</p>
+            <form class="reset-form" action="" method="POST">
+                <button class="reset-btn" name="reset" value="reset">reset<img src="/images/redo.svg" alt="reset"></button>
+            </form>
         <% } %>
 
         <% if (huidigePersoon) { %>

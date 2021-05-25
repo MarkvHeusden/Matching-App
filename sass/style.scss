@@ -236,7 +236,7 @@ header {
         pointer-events: none;
 
         img {
-            width: 1.25rem;
+            width: $medium;
         }
     }
 }
@@ -272,4 +272,34 @@ header {
 .detail-form {
     bottom: 3rem;
 
+}
+
+.reset-form {
+    display: grid;
+    place-items: center;
+    height: 10rem;
+
+    .reset-btn {
+        margin: $medium;
+        border-radius: 50%;
+        border: none;
+        background-color: $backgr-kleur;
+        box-shadow: $subtle-box-shadow;
+        padding: $medium;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-indent: -10rem;
+        overflow: hidden;
+
+        img {
+            width: $medium;
+            transition: transform .3s;
+        }
+
+        &:hover img {
+            transform: $scale-big;
+        }
+    }
 }
