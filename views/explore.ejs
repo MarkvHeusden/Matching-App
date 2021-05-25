@@ -7,7 +7,7 @@
     <main>
         <h1>Ontdek mensen</h1>
         <% if (huidigePersoon) { %>
-        <a href="/explore/<%= huidigePersoon.id %>" class="persoon-sectie">
+        <a href="/explore/<%= huidigePersoon._id %>" class="persoon-sectie">
             <section>
                 <img src="/images/personen/<%= huidigePersoon.img %>"
                     alt="profiel afbeelding <%= huidigePersoon.naam %>">
