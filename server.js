@@ -3,10 +3,36 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000 // Gebruik Heroku port of localhost port
 
+// MongoDB & .env
+const dotenv = require('dotenv').config()
+const MongoClient = require('mongodb').MongoClient
+
+// Verbind met MongoDB
+const dbURI = 'mongodb+srv://mark:FvCp3rZDNjrx9xcU@cluster0.uis9f.mongodb.net/pizza-people?retryWrites=true&w=majority'
+MongoClient.connect(process.env.DB_URI, {
+  useNewUrlParser: true, // Opties object toegevoegd om waarschuwingen in console te voorkomen
+  useUnifiedTopology: true
+}, (err, client) => {
+  if (err) return console.error(err)
+  const db = client.db('pizza-people');
+  const collection = db.collection('personen')
+  const cursor = collection.find({});
+  function iterateFunc(doc) {
+    console.log(JSON.stringify(doc, null, 4));
+ }
+ 
+ cursor.forEach(iterateFunc);
+
+
+  app.listen(port)
+})
+
 // Middleware & static bestanden
 app.use(express.static('./static/public'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({
+  extended: true
+}))
 
 // Template engine
 app.set('view engine', 'ejs')
@@ -19,8 +45,8 @@ let personen = [{
     laatsteBericht: "Pizza'tje doen?", // Dit is het laatste chat bericht dat deze persoon heeft verzonden. Is dit leeg dan komt er de tekst te staan dat je een gesprek kunt beginnen.
     imgFull: '1.jpeg', // Volledige afbeelding voor de detail pagina
     img: '1.png', // Cropped afbeelding voor de explore en match pagina
-    bio: 'Hoi ik ben Jade, en mijn lievelings...',
-    bioLang: 'Hoi ik ben Jade, en mijn lievelingspizza is mozzarella. In het dagelijks leven studeer ik Creative Business (CB) aan de Hogeschool van Amsterdam. Ik zit momenteel in mijn 3e jaar en ben nu net 22 jaar oud. Verder werk ik in een restaurant als bediening en woon ik in Haarlem. In mijn vrije tijd hou ik mij bezig met gezellig wat drinken met vrienden en natuurlijk pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
+    favPizza: 'Mozzarella',
+    bio: 'Hoi ik ben Jade, en mijn lievelingspizza is mozzarella. In het dagelijks leven studeer ik Creative Business (CB) aan de Hogeschool van Amsterdam. Ik zit momenteel in mijn 3e jaar en ben nu net 22 jaar oud. Verder werk ik in een restaurant als bediening en woon ik in Haarlem. In mijn vrije tijd hou ik mij bezig met gezellig wat drinken met vrienden en natuurlijk pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
   },
   {
     id: 52935,
@@ -29,8 +55,8 @@ let personen = [{
     laatsteBericht: '',
     imgFull: '2.jpeg',
     img: '2.jpeg',
-    bio: 'Nina hier 👋🏼 Mijn lievelingspizza...',
-    bioLang: 'Nina hier 👋🏼 Mijn lievelingspizza is Hawaii 🥴. In het dagelijks leven studeer ik Verpleegkunde op de Hogeschool Leiden. Ik zit momenteel in mijn 2e jaar en ben nu net 20 jaar oud. Verder werk ik als clown in het circus en woon ik in Leiden. In mijn vrije tijd hou ik mij bezig met sporten en natuurlijk af en toe een pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
+    favPizza: 'Hawaii',
+    bio: 'Nina hier 👋🏼 Mijn lievelingspizza is Hawaii 🥴. In het dagelijks leven studeer ik Verpleegkunde op de Hogeschool Leiden. Ik zit momenteel in mijn 2e jaar en ben nu net 20 jaar oud. Verder werk ik als clown in het circus en woon ik in Leiden. In mijn vrije tijd hou ik mij bezig met sporten en natuurlijk af en toe een pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
   },
   {
     id: 52936,
@@ -39,8 +65,8 @@ let personen = [{
     laatsteBericht: '',
     imgFull: '3.jpeg',
     img: '3.jpeg',
-    bio: 'Hey daar! Ik ben Lisa en pizza salami...',
-    bioLang: 'Hey daar! Ik ben Lisa en pizza salami is mijn absolute favoriet! In het dagelijks leven studeer ik Ondernemerschap & Retail Management op de Haagse Hogeschool. Ik zit momenteel in mijn 1e jaar en ben nu net 20 jaar oud. Verder werk ik in een restaurant als bezorger en woon ik in in Leidschendam. In mijn vrije tijd hou ik mij bezig met puzzelen en natuurlijk pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
+    favPizza: 'Salami',
+    bio: 'Hey daar! Ik ben Lisa en pizza salami is mijn absolute favoriet! In het dagelijks leven studeer ik Ondernemerschap & Retail Management op de Haagse Hogeschool. Ik zit momenteel in mijn 1e jaar en ben nu net 20 jaar oud. Verder werk ik in een restaurant als bezorger en woon ik in in Leidschendam. In mijn vrije tijd hou ik mij bezig met puzzelen en natuurlijk pizza eten. Like mij als je opzoek bent naar een pizza maatje.'
   }
 ]
 
@@ -104,6 +130,6 @@ app.use((req, res) => {
 })
 
 // Run de server lokaal
-app.listen(port, () => {
-  console.log(`Bekijk app op http://localhost:${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Bekijk app op http://localhost:${port}`)
+// })

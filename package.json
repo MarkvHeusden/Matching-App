@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "npm run live-code & npm run live-css",
-    "live-code": "nodemon server.js",
-    "live-css": "node-sass -w ./sass -o ./static/public/css"
+    "dev": "npm run dev-nodemon & npm run dev-sass",
+    "dev-nodemon": "nodemon server.js",
+    "dev-sass": "node-sass -w ./sass -o ./static/public/css"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/MarkvHeusden/Matching-app#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.6.8"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
