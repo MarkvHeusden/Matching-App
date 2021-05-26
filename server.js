@@ -22,7 +22,7 @@ const connectDB = async () => {
     // Maak connectie met opgegeven URI
     const client = new MongoClient(dbURI, options)
     await client.connect()
-    db = await client.db(process.env.DB_NAME)
+    db = client.db(process.env.DB_NAME)
 }
 
 connectDB()
