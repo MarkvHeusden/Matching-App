@@ -10,7 +10,7 @@ Welkom op mijn repo voor project tech! Deze repo bevat alle resources van mijn m
 
 Pizza People is een matching applicatie die mensen laat matchen op basis van hun favoriete pizza's. Selecteer simpelweg je favoriete pizza's in je voorkeuren en krijg zo een selectie van mensen met dezelfde (slechte?) smaak voor pizza's! Deze applicatie voorkomt het grootste probleem met huidige matching applicaties zoals Tinder, namelijk het matchen van mensen die pizza hawaï lekker vinden! 🤢
 
-![](https://media.giphy.com/media/JNxjvjiYs3sr2ImDeO/source.gif)
+<!-- ![](https://media.giphy.com/media/JNxjvjiYs3sr2ImDeO/source.gif) -->
 
 ## 🤑 Say no more, hoe instaleer ik dit?!
 
@@ -34,7 +34,8 @@ npm start
 
 Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken/skippen van mensen en het matchen aan deze mensen als zij mij ook geliked hebben. In mijn feature heb ik aangegeven dat de eerste 2 personen mij hebben geliket door middel van de propperty ````likedMe: true````. Als ik 1 van hen ook like krijg ik dus een match.
 
-![](https://i.giphy.com/media/23Mj8QXhWMNmE/source.gif)
+![](https://media.giphy.com/media/JNxjvjiYs3sr2ImDeO/source.gif)
+<!-- ![](https://i.giphy.com/media/23Mj8QXhWMNmE/source.gif) -->
 
 ---
 # 🥱 Saaie documentatie
