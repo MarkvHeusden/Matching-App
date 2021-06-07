@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="nl">
-<%- include('./includes/head.ejs') %>
+  <%- include('./includes/head.ejs') %>
 
-<body>
+  <body>
     <header>
-        <nav class="nav-back">
-            <a href="/explore"><img src="/images/pijl.svg" alt="terug pijl"></a>
-        </nav>
+      <nav class="nav-back">
+        <a href="/explore"><img src="/images/pijl.svg" alt="terug pijl" /></a>
+      </nav>
     </header>
     <main>
-        <section class="persoon-details">
-            <img src="/images/personen/<%= persoon.imgFull %>" alt="profiel afbeelding <%= persoon.naam %>">
-            <article>
-                <h1><%= persoon.naam %></h1>
-                <p><%= persoon.bio %></p>
-            </article>
-        </section>
-        <form class="like-form detail-form" action="" method="POST">
-            <button class="skip-btn" name="rate" value="skip">Skip<img src="/images/cross.svg" alt="skip"></button>
-            <button class="redo-btn" name="rate" value="redo">Redo<img src="/images/redo.svg" alt="redo"></button>
-            <button class="like-btn" name="rate" value="like">Like<img src="/images/heart.svg" alt="like"></button>
-        </form>
+      <section class="persoon-details">
+        <img
+          src="/images/personen/<%= persoon.imgFull %>"
+          alt="profiel afbeelding <%= persoon.naam %>"
+        />
+        <article>
+          <h1><%= persoon.naam %></h1>
+          <p><%= persoon.bio %></p>
+        </article>
+      </section>
+      <form class="like-form detail-form" action="" method="POST">
+        <button class="skip-btn" name="rate" value="skip">
+          Skip<img src="/images/cross.svg" alt="skip" />
+        </button>
+        <button class="redo-btn" name="rate" value="redo">
+          Redo<img src="/images/redo.svg" alt="redo" />
+        </button>
+        <button class="like-btn" name="rate" value="like">
+          Like<img src="/images/heart.svg" alt="like" />
+        </button>
+      </form>
     </main>
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="nl">
-<%- include('./includes/head.ejs') %>
+  <%- include('./includes/head.ejs') %>
 
-<body>
+  <body>
     <%- include('./includes/header.ejs') %>
     <main>
-        <h1>Ontdek mensen</h1>
-        <% if (huidigePersoon) { %>
+      <h1>Ontdek mensen</h1>
+      <% if (huidigePersoon) { %>
+      <section class="persoon-container">
         <a href="/explore/<%= huidigePersoon._id %>" class="persoon-sectie">
-            <section>
-                <img src="/images/personen/<%= huidigePersoon.img %>"
-                    alt="profiel afbeelding <%= huidigePersoon.naam %>">
-                <article>
-                    <h2><%= huidigePersoon.naam %></h2>
-                    <p>🍕 Favoriete pizza: <%= huidigePersoon.favPizza %></p>
-                </article>
-            </section>
+          <img
+            src="/images/personen/<%= huidigePersoon.img %>"
+            alt="profiel afbeelding <%= huidigePersoon.naam %>"
+          />
+          <article>
+            <h2><%= huidigePersoon.naam %></h2>
+            <p>🍕 Favoriete pizza: <%= huidigePersoon.favPizza %></p>
+          </article>
         </a>
-        <% } else { %>
-            <p>Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas je voorkeuren aan of kijk later
-                opnieuw.</p>
-            <form class="reset-form" action="" method="POST">
-                <button class="reset-btn" name="reset" value="reset">reset<img src="/images/redo.svg" alt="reset"></button>
-            </form>
-        <% } %>
-
-        <% if (huidigePersoon) { %>
-        <form class="like-form explore-form" action="" method="POST">
-            <button class="skip-btn" name="rate" value="skip">Skip<img src="/images/cross.svg" alt="skip"></button>
-            <button class="redo-btn" name="rate" value="redo">Redo<img src="/images/redo.svg" alt="redo"></button>
-            <button class="like-btn" name="rate" value="like">Like<img src="/images/heart.svg" alt="like"></button>
-        </form>
-        <% } %>
+      </section>
+      <% } else { %>
+      <p>
+        Er zijn geen personen meer gevonden die aan je voorkeuren voldoen. Pas
+        je voorkeuren aan of kijk later opnieuw.
+      </p>
+      <form class="reset-form" action="" method="POST">
+        <button class="reset-btn" name="reset" value="reset">
+          reset<img src="/images/redo.svg" alt="reset" />
+        </button>
+      </form>
+      <% } %> <% if (huidigePersoon) { %>
+      <form class="like-form" action="" method="POST">
+        <button class="skip-btn" name="rate" value="skip">
+          Skip<img src="/images/cross.svg" alt="skip" />
+        </button>
+        <button class="redo-btn" name="reset" value="reset">
+          Redo<img src="/images/redo.svg" alt="reset" />
+        </button>
+        <button class="like-btn" name="rate" value="like">
+          Like<img src="/images/heart.svg" alt="like" />
+        </button>
+      </form>
+      <% } %>
     </main>
     <script src="/js/script.js"></script>
-</body>
-
+    <script type="module" src="/js/swipe.js"></script>
+  </body>
 </html>

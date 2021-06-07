@@ -5,8 +5,7 @@ const port = process.env.PORT || 3000 // Gebruik Heroku port of localhost port
 
 // MongoDB & .env
 require('dotenv').config()
-const { MongoClient } = require('mongodb')
-const { ObjectId } = require('mongodb')
+const { MongoClient, ObjectId } = require('mongodb')
 
 // Maak variabele database aan
 let db

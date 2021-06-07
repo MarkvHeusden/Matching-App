@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="nl">
-<%- include('./includes/head.ejs') %>
+  <%- include('./includes/head.ejs') %>
 
-<body>
+  <body>
     <%- include('./includes/header.ejs') %>
     <main>
-        <h1>Matches</h1>
-        <% if (matches.length > 0) { %>
-        <!-- Laat voor elke match een sectie zien met de matches -->
-        <% matches.forEach(matches => { %>
-        <section class="match-sectie">
-            <div class="profiel-afbeelding-cirkel">
-                <img src="./images/personen/<%= matches.img %>" alt="profiel afbeelding <%= matches.naam %>">
-            </div>
-            <article>
-                <h2 class='match-naam'><%= matches.naam %></h2>
-                <!-- Check of er een laatste bericht is met deze persoon. Als dit niet het geval is, laat dan de tekst zien om een chat te beginnen. In mijn voorbeeld heb ik alleen de eerste persoon een bericht laten sturen. -->
-                <p class='match-bericht'>
-                    <%= matches.laatsteBericht ? matches.laatsteBericht : `Begin het gesprek met ${matches.naam}...` %>
-                </p>
-            </article>
-        </section>
-        <% }) %>
-        <!-- Als er geen matches zijn, laat dan deze tekst zien -->
-        <% } else { %>
-        <p>Je hebt nog geen matches! Bekijk de <a href="./explore">ontdek pagina</a> om nieuwe matches te krijgen.</p>
-        <% } %>
+      <h1>Matches</h1>
+      <% if (matches.length > 0) { %>
+      <!-- Laat voor elke match een sectie zien met de matches -->
+      <% matches.forEach(matches => { %>
+      <section class="match-sectie">
+        <div class="profiel-afbeelding-cirkel">
+          <img
+            src="./images/personen/<%= matches.img %>"
+            alt="profiel afbeelding <%= matches.naam %>"
+          />
+        </div>
+        <article>
+          <h2 class="match-naam"><%= matches.naam %></h2>
+          <!-- Check of er een laatste bericht is met deze persoon. Als dit niet het geval is, laat dan de tekst zien om een chat te beginnen. In mijn voorbeeld heb ik alleen de eerste persoon een bericht laten sturen. -->
+          <p class="match-bericht">
+            <%= matches.laatsteBericht ? matches.laatsteBericht : `Begin het
+            gesprek met ${matches.naam}...` %>
+          </p>
+        </article>
+      </section>
+      <% }) %>
+      <!-- Als er geen matches zijn, laat dan deze tekst zien -->
+      <% } else { %>
+      <p>
+        Je hebt nog geen matches! Bekijk de
+        <a href="./explore">ontdek pagina</a> om nieuwe matches te krijgen.
+      </p>
+      <% } %>
     </main>
     <script src="./js/script.js"></script>
-</body>
-
+  </body>
 </html>

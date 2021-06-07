@@ -27,7 +27,7 @@ html {
   overflow: hidden; }
 
 body {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   background-color: #fbfbfb;
   color: #2f2d2b;
   width: 375px;
@@ -38,6 +38,12 @@ body {
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll; }
+  body.mobile {
+    border-radius: 0; }
+  body.liking {
+    background-color: rgba(71, 214, 71, 0.25); }
+  body.skipping {
+    background-color: rgba(244, 33, 33, 0.25); }
 
 header {
   margin-bottom: 1.25rem; }
@@ -47,7 +53,7 @@ header {
     header ul a img {
       filter: grayscale(99%);
       width: 2rem;
-      transition: transform .3s; }
+      transition: transform 0.3s; }
     header ul a:hover img {
       transform: scale(1.05); }
     header ul a.active img {
@@ -65,31 +71,51 @@ header {
       border-radius: 50%;
       padding: 0.65rem; }
 
+.persoon-container {
+  position: relative; }
+  .persoon-container::before, .persoon-container::after {
+    content: "";
+    height: 22rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    background-color: white; }
+  .persoon-container::before {
+    transform: scale(0.9) translate(0, 2rem);
+    z-index: -1;
+    opacity: 0.7; }
+  .persoon-container::after {
+    transform: scale(0.8) translate(0, 4.5rem);
+    z-index: -2;
+    opacity: 0.4; }
+
 .persoon-sectie {
   height: 22rem;
-  width: calc(100% - 1.75rem * 2);
   border-radius: 1.25rem;
   background-color: white;
   box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform .3s;
-  position: absolute;
-  top: 10rem;
+  transition: transform 0.3s;
   color: #2f2d2b;
-  overflow: hidden; }
+  overflow: hidden;
+  display: block; }
+  .persoon-sectie.animated {
+    transition: 0.1s; }
   .persoon-sectie img {
     height: 17rem;
     width: 100%;
     object-fit: cover;
-    object-position: center center; }
+    object-position: center center;
+    pointer-events: none; }
   .persoon-sectie article {
     padding: 0.65rem 1.25rem; }
     .persoon-sectie article h2 {
-      padding-bottom: .1rem; }
+      padding-bottom: 0.1rem; }
     .persoon-sectie article p {
       opacity: 0.6; }
-  .persoon-sectie:hover {
-    transform: scale(1.02) rotateZ(5deg) translateY(-0.25rem) translateX(0.5rem); }
 
 .persoon-details img {
   min-width: calc(100% + 1.75rem * 2);
@@ -109,7 +135,7 @@ header {
   padding: 1.25rem;
   margin-bottom: 0.65rem;
   cursor: pointer;
-  transition: transform .3s; }
+  transition: transform 0.3s; }
   .match-sectie .profiel-afbeelding-cirkel {
     width: 3rem;
     height: 3rem;
@@ -150,34 +176,11 @@ header {
     overflow: hidden; }
     .like-form button img {
       width: 2rem;
-      transition: transform .3s; }
+      transition: transform 0.3s; }
     .like-form button:hover img {
       transform: scale(1.05); }
-  .like-form .redo-btn {
-    pointer-events: none; }
-    .like-form .redo-btn img {
-      width: 1.25rem; }
-
-.explore-form::before, .explore-form::after {
-  content: '';
-  height: 10rem;
-  border-radius: 1.25rem;
-  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  pointer-events: none;
-  background-color: white; }
-
-.explore-form::before {
-  width: calc(100% - 1.9rem);
-  bottom: 7.3rem;
-  z-index: -1;
-  opacity: 0.7; }
-
-.explore-form::after {
-  width: calc(100% - 3.6rem);
-  bottom: 6.6rem;
-  z-index: -2;
-  opacity: 0.4; }
+  .like-form .redo-btn img {
+    width: 1.25rem; }
 
 .detail-form {
   bottom: 3rem; }
@@ -201,6 +204,6 @@ header {
     overflow: hidden; }
     .reset-form .reset-btn img {
       width: 1.25rem;
-      transition: transform .3s; }
+      transition: transform 0.3s; }
     .reset-form .reset-btn:hover img {
       transform: scale(1.05); }

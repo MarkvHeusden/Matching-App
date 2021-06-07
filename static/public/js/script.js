@@ -9,11 +9,8 @@ headerItems.forEach((headerItem) => {
     }
 })
 
-// const personenEl = document.querySelectorAll('.persoon-sectie');
-// personenEl.forEach(personenEl => {
-//     personenEl.addEventListener('click', klik);
-// })
-
-// function klik() {
-//     console.log(this);
-// }
+// Stijl body voor mobiel
+const deviceBreedte = document.documentElement.clientWidth
+if (deviceBreedte <= 375) {
+    document.body.classList.add('mobile')
+}
