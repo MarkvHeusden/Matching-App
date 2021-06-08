@@ -38,12 +38,6 @@ body {
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll; }
-  body.mobile {
-    border-radius: 0; }
-  body.liking {
-    background-color: rgba(71, 214, 71, 0.25); }
-  body.skipping {
-    background-color: rgba(244, 33, 33, 0.25); }
 
 header {
   margin-bottom: 1.25rem; }
@@ -51,7 +45,7 @@ header {
     display: flex;
     justify-content: space-between; }
     header ul a img {
-      filter: grayscale(99%);
+      filter: grayscale(100%);
       width: 2rem;
       transition: transform 0.3s; }
     header ul a:hover img {
@@ -91,31 +85,48 @@ header {
     transform: scale(0.8) translate(0, 4.5rem);
     z-index: -2;
     opacity: 0.4; }
-
-.persoon-sectie {
-  height: 22rem;
-  border-radius: 1.25rem;
-  background-color: white;
-  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.3s;
-  color: #2f2d2b;
-  overflow: hidden;
-  display: block; }
-  .persoon-sectie.animated {
-    transition: 0.1s; }
-  .persoon-sectie img {
-    height: 17rem;
-    width: 100%;
-    object-fit: cover;
-    object-position: center center;
+  .persoon-container .persoon {
+    height: 22rem;
+    border-radius: 1.25rem;
+    background-color: white;
+    box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: #2f2d2b;
+    overflow: hidden;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none; }
+    .persoon-container .persoon.animated {
+      transition: 0.1s; }
+    .persoon-container .persoon img {
+      height: 17rem;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      pointer-events: none; }
+    .persoon-container .persoon article {
+      padding: 0.65rem 1.25rem; }
+      .persoon-container .persoon article h2 {
+        padding-bottom: 0.1rem; }
+      .persoon-container .persoon article p {
+        opacity: 0.6; }
+  .persoon-container .like-skip-feedback {
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 0.3s;
     pointer-events: none; }
-  .persoon-sectie article {
-    padding: 0.65rem 1.25rem; }
-    .persoon-sectie article h2 {
-      padding-bottom: 0.1rem; }
-    .persoon-sectie article p {
-      opacity: 0.6; }
+    .persoon-container .like-skip-feedback.visible {
+      opacity: 0.75; }
 
 .persoon-details img {
   min-width: calc(100% + 1.75rem * 2);
@@ -179,11 +190,10 @@ header {
       transition: transform 0.3s; }
     .like-form button:hover img {
       transform: scale(1.05); }
+  .like-form.detail-form {
+    bottom: 3rem; }
   .like-form .redo-btn img {
     width: 1.25rem; }
-
-.detail-form {
-  bottom: 3rem; }
 
 .reset-form {
   display: grid;
@@ -207,3 +217,7 @@ header {
       transition: transform 0.3s; }
     .reset-form .reset-btn:hover img {
       transform: scale(1.05); }
+
+@media screen and (max-width: 375px) {
+  body {
+    border-radius: 0; } }

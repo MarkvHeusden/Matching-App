@@ -2,14 +2,13 @@
 $backgr-kleur: rgb(251, 251, 251);
 $prim-kleur: rgb(255, 139, 0);
 $sec-kleur: rgb(47, 45, 43);
-$like-kleur: rgba(71, 214, 71, 0.25);
-$skip-kleur: rgba(244, 33, 33, 0.25);
 $small: 0.65rem;
 $medium: 1.25rem;
 $big: 1.75rem;
 $subtle-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.1);
 $scale-small: scale(1.02);
 $scale-big: scale(1.05);
+$bp-mobile: 375px;
 
 // Reset default styling
 *,
@@ -52,7 +51,7 @@ body {
   font-family: "Karla", sans-serif;
   background-color: $backgr-kleur;
   color: $sec-kleur;
-  width: 375px;
+  width: $bp-mobile;
   height: 667px;
   box-shadow: $subtle-box-shadow;
   border-radius: $medium;
@@ -60,18 +59,6 @@ body {
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
-
-  &.mobile {
-    border-radius: 0;
-  }
-
-  &.liking {
-    background-color: $like-kleur;
-  }
-
-  &.skipping {
-    background-color: $skip-kleur;
-  }
 }
 
 // Header & navigatie
@@ -84,7 +71,7 @@ header {
 
     a {
       img {
-        filter: grayscale(99%);
+        filter: grayscale(100%);
         width: 2rem;
         transition: transform 0.3s;
       }
@@ -143,47 +130,69 @@ header {
     z-index: -2;
     opacity: 0.4;
   }
-}
 
-.persoon-sectie {
-  height: 22rem;
-  border-radius: $medium;
-  background-color: white;
-  box-shadow: $subtle-box-shadow;
-  cursor: pointer;
-  transition: transform 0.3s;
-  color: $sec-kleur;
-  overflow: hidden;
-  display: block;
+  .persoon {
+    height: 22rem;
+    border-radius: $medium;
+    background-color: white;
+    box-shadow: $subtle-box-shadow;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: $sec-kleur;
+    overflow: hidden;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
 
-  &.animated {
-    transition: 0.1s;
+    &.animated {
+      transition: 0.1s;
+    }
+
+    img {
+      height: 17rem;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      pointer-events: none;
+    }
+
+    article {
+      padding: $small $medium;
+
+      h2 {
+        padding-bottom: 0.1rem;
+      }
+
+      p {
+        opacity: 0.6;
+      }
+    }
+
+    // &:hover {
+    //   transform: $scale-small rotateZ(5deg) translateY(-0.25rem)
+    //     translateX(0.5rem);
+    // }
   }
 
-  img {
-    height: 17rem;
-    width: 100%;
-    object-fit: cover;
-    object-position: center center;
+  .like-skip-feedback {
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 0.3s;
     pointer-events: none;
-  }
 
-  article {
-    padding: $small $medium;
-
-    h2 {
-      padding-bottom: 0.1rem;
-    }
-
-    p {
-      opacity: 0.6;
+    &.visible {
+      opacity: 0.75;
     }
   }
-
-  // &:hover {
-  //   transform: $scale-small rotateZ(5deg) translateY(-0.25rem)
-  //     translateX(0.5rem);
-  // }
 }
 
 // Detail pagina
@@ -275,15 +284,15 @@ header {
     }
   }
 
+  &.detail-form {
+    bottom: 3rem;
+  }
+
   .redo-btn {
     img {
       width: $medium;
     }
   }
-}
-
-.detail-form {
-  bottom: 3rem;
 }
 
 .reset-form {
@@ -313,5 +322,11 @@ header {
     &:hover img {
       transform: $scale-big;
     }
+  }
+}
+
+@media screen and (max-width: $bp-mobile) {
+  body {
+    border-radius: 0;
   }
 }

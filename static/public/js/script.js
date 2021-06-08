@@ -8,9 +8,3 @@ headerItems.forEach((headerItem) => {
         headerItem.classList.add('active')
     }
 })
-
-// Stijl body voor mobiel
-const deviceBreedte = document.documentElement.clientWidth
-if (deviceBreedte <= 375) {
-    document.body.classList.add('mobile')
-}

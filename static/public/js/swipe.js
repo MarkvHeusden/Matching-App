@@ -6,21 +6,27 @@ const gestureOpties = {
     // Minimale snelheid waarop een beweging als swipe word herkend
     velocityThreshold: 1,
     // Bereken de afstand waarna snelheid niet meer uitmaakt en iets altijd een swipe is
-    disregardVelocityThreshold: (type, self) =>
-        Math.floor(
-            0.2 *
-                (type === 'x'
-                    ? self.element.clientWidth
-                    : self.element.clientHeight)
-        ),
+    disregardVelocityThreshold: (type) =>
+        Math.floor(0.2 * (type === 'x' ? 375 : 667)),
     // Voorkom dat een swipe zowel als horizontale swipe en als verticale swipe wordt gezien tegelijk
     diagonalSwipes: false,
     // Luister ook naar muisevent ipv alleen touchevents
     mouseSupport: true
 }
 
-const target = document.querySelector('.persoon-sectie')
+const target = document.querySelector('.persoon')
 const gesture = new TinyGesture(target, gestureOpties)
+
+// Voorkom dat je perongeluk klikt tijdens het slepen (vooral desktop probleem)
+const stopKlik = (e) => {
+    e.preventDefault()
+}
+
+target.addEventListener('click', stopKlik)
+
+// target.addEventListener('click', (e) => {
+//     e.preventDefault()
+// })
 
 gesture.on('panmove', () => {
     // Als er al een animatie bezig (.animationFrame property = 1 ipv 0) is, return dan de functie om teveel aanvragen tegelijk te voorkomen
@@ -47,16 +53,21 @@ gesture.on('panmove', () => {
         // Zet animationFrame weer op null zodat de volgende frame plaats kan vinden
         gesture.animationFrame = null
     })
+    // Pak het element dat een hartje of kruisje gaat tonen wanneer je swiped
+    const likeSkipFeedback = document.querySelector('.like-skip-feedback')
 
     if (gesture.swipingDirection === 'horizontal' && gesture.touchMoveX > 7.5) {
-        document.body.className = 'liking'
+        likeSkipFeedback.classList.add('visible')
+        likeSkipFeedback.style.backgroundImage = "url('../images/heart.svg')"
     } else if (
         gesture.swipingDirection === 'horizontal' &&
         gesture.touchMoveX < 7.5
     ) {
-        document.body.className = 'skipping'
+        likeSkipFeedback.classList.add('visible')
+        likeSkipFeedback.style.backgroundImage = "url('../images/cross.svg')"
     } else {
-        document.body.className = ''
+        likeSkipFeedback.classList.remove('visible')
+        likeSkipFeedback.style.backgroundImage = 'none'
     }
 })
 
@@ -73,8 +84,11 @@ gesture.on('panend', () => {
     // Zet tranform op null, of te wel zet hem weer op originele plaats
     target.style.transform = null
 
-    // Zet de body kleur weer goed
-    document.body.className = ''
+    // Pak het element dat een hartje of kruisje gaat tonen wanneer je swiped
+    const likeSkipFeedback = document.querySelector('.like-skip-feedback')
+
+    // Stijl het element weer zodat je hem niet ziet
+    likeSkipFeedback.style.backgroundImage = 'none'
 })
 
 gesture.on('swiperight', () => {
@@ -99,4 +113,9 @@ gesture.on('swipeleft', () => {
     // Selecteer de like knop en klik deze
     const skipKnop = document.querySelector('.skip-btn')
     skipKnop.click()
+})
+
+// Zorg dat je weer kunt klikken op de kaart als dit ook bewust is
+gesture.on('tap', () => {
+    target.removeEventListener('click', stopKlik)
 })

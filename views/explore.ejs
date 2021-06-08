@@ -8,7 +8,11 @@
       <h1>Ontdek mensen</h1>
       <% if (huidigePersoon) { %>
       <section class="persoon-container">
-        <a href="/explore/<%= huidigePersoon._id %>" class="persoon-sectie">
+        <a
+          href="/explore/<%= huidigePersoon._id %>"
+          draggable="false"
+          class="persoon"
+        >
           <img
             src="/images/personen/<%= huidigePersoon.img %>"
             alt="profiel afbeelding <%= huidigePersoon.naam %>"
@@ -18,6 +22,7 @@
             <p>🍕 Favoriete pizza: <%= huidigePersoon.favPizza %></p>
           </article>
         </a>
+        <div class="like-skip-feedback"></div>
       </section>
       <% } else { %>
       <p>
