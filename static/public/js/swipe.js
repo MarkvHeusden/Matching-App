@@ -21,12 +21,7 @@ const gesture = new TinyGesture(target, gestureOpties)
 const stopKlik = (e) => {
     e.preventDefault()
 }
-
 target.addEventListener('click', stopKlik)
-
-// target.addEventListener('click', (e) => {
-//     e.preventDefault()
-// })
 
 gesture.on('panmove', () => {
     // Als er al een animatie bezig (.animationFrame property = 1 ipv 0) is, return dan de functie om teveel aanvragen tegelijk te voorkomen
@@ -96,7 +91,7 @@ gesture.on('swiperight', () => {
     target.style.transform = 'translateX(150%)'
 
     // En zet de kaart na een halve seconde weer terug, mocht er iets fout gaan.
-    setTimeout(() => (target.style.transform = null), 500)
+    setTimeout(() => (target.style.transform = null), 1000)
 
     // Selecteer de like knop en klik deze
     const likeKnop = document.querySelector('.like-btn')
@@ -108,7 +103,7 @@ gesture.on('swipeleft', () => {
     target.style.transform = 'translateX(-150%)'
 
     // En zet de kaart na een halve seconde weer terug, mocht er iets fout gaan.
-    setTimeout(() => (target.style.transform = null), 500)
+    setTimeout(() => (target.style.transform = null), 1000)
 
     // Selecteer de like knop en klik deze
     const skipKnop = document.querySelector('.skip-btn')

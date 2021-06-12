@@ -15,29 +15,35 @@ Pizza People is een matching applicatie die mensen laat matchen op basis van hun
 ## 🤑 Say no more, hoe instaleer ik dit?!
 
 We begrijpen dat je gelijk enthousiast bent, daarom hebben we het installeren zo simpel mogelijk gemaakt. Clone simpelweg deze repository naar de gewenste locatie met het volgende commando in je terminal:
-````
+
+```
 git clone https://github.com/MarkvHeusden/Matching-app.git
-````
+```
 
 Navigeer naar de map en installeer vervolgens de packages met het commando:
-````
-npm install
-````
-En start vervolgens de lokale server met het commando:
-````
-npm start
-````
 
-✅  Zo simpel is het! Je bent nu klaar om je liefdesleven te verbeteren.
+```
+npm install
+```
+
+En start vervolgens de lokale server met het commando:
+
+```
+npm start
+```
+
+✅ Zo simpel is het! Je bent nu klaar om je liefdesleven te verbeteren.
 
 ## 😎 Features van de applicatie
 
-Omdat tijd gelimiteerd is en ik ook nog een sociaal leven wil hebben is niet elke feature van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken/skippen van mensen en het matchen aan deze mensen als zij mij ook geliked hebben. In mijn feature heb ik aangegeven dat de eerste 2 personen mij hebben geliket door middel van de propperty ````likedMe: true````. Als ik 1 van hen ook like krijg ik dus een match.
+Omdat tijd gelimiteerd is zijn niet alle features van de app uitgewerkt. Ik heb mij gefocust op het uitwerken van de matching feature. Dit houdt in het liken/skippen van mensen en het matchen aan deze mensen als zij mij ook geliked hebben. In mijn feature heb ik aangegeven dat de eerste 2 personen mij hebben geliket door middel van de propperty `likedMe: true`. Als ik 1 van hen ook like krijg ik dus een match. Ook heb ik extra functionaliteiten uitgewerkt, zoals een reset knop en een swipe functionaliteit.
 
 ![](https://media.giphy.com/media/JNxjvjiYs3sr2ImDeO/source.gif)
+
 <!-- ![](https://i.giphy.com/media/23Mj8QXhWMNmE/source.gif) -->
 
 ---
+
 # 🥱 Saaie documentatie
 
 ## 🤓 Wiki
